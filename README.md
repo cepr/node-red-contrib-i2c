@@ -1,15 +1,13 @@
 # node-red-contrib-i2c
+This version of the source code has been forked from https://github.com/nielsnl68/node-red-contrib-i2c by Cedric Priscal.
+It adds support for the selection of the I2C port to use.
+This node should work on any system supported by the `i2c-bus` package but has been only tested on Raspberry Pi.
+
 This set of node-red nodes communicate with the Raspberry Pi I2C driver and uses the node-I2C package.
 Run the following command in the root directory of your Node-RED install, usually
 this is ~/.node-red.
 
-As of version 0.5.0 the nodes are using the i2c-bus library to communicate with your devices. It looks more stable and up-to-date. Also the need to use a config-node is removed. The config node was needed to store the common i2c object. With the new i2c-bus library is that not needed anymore.
-
-**Warning**: After upgrading to this version you will get an error of an unknown node in the config side-bar, you can safely remove this one.
-
-Downside my nodes work only for newer version where the i2c driver is on /dev/i2c-1
-
-    npm install --unsafe-perm node-red-contrib-i2c
+    npm install --unsafe-perm github:cepr/node-red-contrib-i2c
 
 Usage
 -----
@@ -42,11 +40,3 @@ This payload can be a Buffer, Array, String or Integer.
 When you use integers the number of bytes to send is important and can be set between 0 and 31 bytes. 
 
 NEW(0.5.0): you can daisychain this node, the input msg is send unchanged to the next node.
-
-
-#### Inportend Note
-Version v0.5.0 is now using the I2C-bus package from fivdi. It looks more robust and better for asyncrone processes like node-red. I would like the maker as much thanks for his work as Kelly in the past version. You can vind his work on github: https://github.com/fivdi/i2c-bus
-
-The Old set of nodes did use the work of kelly's I2C package to work. 
-And i would like to thank him for the work he did on that package. 
-For more info check out his github account at: https://github.com/kelly/node-i2c
